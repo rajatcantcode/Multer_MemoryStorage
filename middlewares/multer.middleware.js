@@ -20,7 +20,9 @@ function fileFilter(req, file, cb) {
 const upload = multer({
   storage: storage,
   fileFilter: fileFilter,
-  limits: { fileSize: 1024 * 1024 }, // 1MB
+  //   Increasing the file size limit so that could test the sharp module
+  /* TODO*/
+  limits: { fileSize: 5 * 1024 * 1024 }, // 1MB
 });
 
 module.exports = upload;
