@@ -32,6 +32,7 @@ connectDB()
 
 const userModel = require("./model/user.models");
 const upload = require("./middlewares/multer.middleware");
+
 app.post("/upload", upload.single("image"), async (req, res) => {
   console.log(req.file);
 
