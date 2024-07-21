@@ -29,3 +29,21 @@ connectDB()
   .catch((err) => {
     console.log("MONGODB connection FAILED ", err);
   });
+
+const userModel = require("./model/user.models");
+const upload = require("./middlewares/multer.middleware");
+app.post("/upload", upload.single("image"), async (req, res) => {
+  console.log(req.file);
+
+  const user = await userModel.create({
+    name: "Simba",
+    image: req.file.buffer,
+  });
+
+  res.send("File uploaded successfully");
+});
+
+app.get("/show", async (req, res) => {
+  let allImages = await userModel.find();
+  res.render("show", { allImages });
+});

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+
+<body class="flex">
+    <% allImages.forEach(function(image) { %>
+        <img src="data:image;base64,<%= image.image.toString('base64') %>" alt="Image" class="w-[100px]">
+        <% }) %>
+</body>
+
+</html>
